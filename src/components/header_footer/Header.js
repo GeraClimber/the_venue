@@ -15,7 +15,12 @@ export default class Header extends Component {
                     padding: '10px 0px'
                 }}
             >
-                header
+                <Toolbar>
+                    <div className="header_logo">
+                        <div className="font_righteous header_logo_venue">The Venue</div>
+                        <div className="header_logo_title">Musical Events</div>
+                    </div>
+                </Toolbar>
             </AppBar>
         )
     }
