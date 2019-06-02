@@ -36,7 +36,7 @@ export default class Pricing extends Component {
                                 text="Purchase"
                                 bck="#ffa800"
                                 color="#ffffff"
-                                link={this.state.linkto}
+                                link={this.state.linkto[i]}
                             />
                         </div>
 
