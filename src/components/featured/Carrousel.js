@@ -1,55 +1,43 @@
 import React from 'react';
-import Slider from "react-slick";
+import Slider from 'react-slick';
 
 import slide_one from '../../resources/images/slide_one.jpg'
 import slide_two from '../../resources/images/slide_two.jpg'
 import slide_three from '../../resources/images/slide_three.jpg'
 
+const IMAGES = [slide_one, slide_two, slide_three];
+const CAROUSEL_SETTINGS = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    speed: 1000
+};
+
 const Carrousel = () => {
-    const settings = {
-        dots: false,
-        infinite: true,
-        autoplay: true,
-        speed: 1000
-    }
+    const containerHeight = window.innerHeight;
     return (
-        <div 
+        <div
             className="carrousel_wrapper"
             style={{
-                height:`${window.innerHeight}px`,
+                height: `${containerHeight}px`,
                 overflow: 'hidden'
             }}
         >
-            <Slider {...settings}>
+            <Slider {...CAROUSEL_SETTINGS}>
                 <div>
-                    <div 
-                        className="carrousel_image"
-                        style={{
-                            background:`url(${slide_one})`,
-                            height:`${window.innerHeight}px`
-                        }}
-                    ></div>
-                </div>
-                <div>
-                    <div 
-                        className="carrousel_image"
-                        style={{
-                            background:`url(${slide_two})`,
-                            height:`${window.innerHeight}px`
-                        }}
-                    ></div>
-                </div>
-                <div>
-                    <div 
-                        className="carrousel_image"
-                        style={{
-                            background:`url(${slide_three})`,
-                            height:`${window.innerHeight}px`
-                        }}
-                    ></div>
+                    {
+                        IMAGES.map(image => (
+                            <div
+                                className="carrousel_image"
+                                style={{
+                                    background: `url(${image})`,
+                                    height: `${containerHeight}px`
+                                }}
+                            />
+                        ))}
                 </div>
             </Slider>
-            
+
         </div>
     );
 };

@@ -1,40 +1,78 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Slide from 'react-reveal/Slide'
 
+const DEADLINE = 'Dec, 16, 2019';
+const DELAY = 1000;
+const MILLISECONDS = 1000;
+
+const DATE_SECTIONS = [
+    {
+        title: 'Days',
+        key: 'days'
+    },
+    {
+        title: 'Hs',
+        key: 'hours'
+    },
+    {
+        title: 'Min',
+        key: 'minutes'
+    },
+    {
+        title: 'Sec',
+        key: 'seconds'
+    }
+];
 
 export default class TimeUntil extends Component {
 
     state = {
-        deadLine: 'Dec, 16, 2019',
-        days: '0',
-        hours: '0',
-        minutes:'0',
-        seconds:'0'
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    };
 
-    }
-    getTimeUntil(deadline){
+    timeSection = (sectionItem) => {
+        console.log(sectionItem);
+        const {title, key} = sectionItem;
+        return (
+            <div className="countdown_item" key={key}>
+                <div className="countdown_time">
+                    {this.state[key]}
+                </div>
+                <div className="countdown_tag">
+                    {title}
+                </div>
+            </div>
+        );
+    };
+
+    renderTimeSections = () => DATE_SECTIONS.map(
+        sectionItem => this.timeSection(sectionItem)
+    );
+
+    getTimeUntil(deadline) {
         const time = Date.parse(deadline) - Date.parse(new Date())
-        if(time<0){
+        if (time < 0) {
             console.log("date passed");
-        }else{
-            const seconds = Math.floor((time/1000)%60);
-            const minutes = Math.floor((time/1000/60)%60);
-            const hours = Math.floor((time/(1000*60*60))%24);
-            const days = Math.floor(time/(1000*60*60*24));
+        } else {
+            const seconds = Math.floor((time / MILLISECONDS) % 60);
+            const minutes = Math.floor((time / MILLISECONDS / 60) % 60);
+            const hours = Math.floor((time / (MILLISECONDS * 60 * 60)) % 24);
+            const days = Math.floor(time / (MILLISECONDS * 60 * 60 * 24));
 
-            this.setState({
+            this.setState(() => ({
                 days,
                 hours,
                 minutes,
                 seconds
-            })
+            }))
         }
-
     }
 
-    componentDidMount(){
-        setInterval(()=>this.getTimeUntil(this.state.deadLine), 1000)
-
+    componentDidMount() {
+        setInterval(() => this.getTimeUntil(DEADLINE), DELAY)
     }
 
     render() {
@@ -45,42 +83,10 @@ export default class TimeUntil extends Component {
                         Event starts in
                     </div>
                     <div className="countdown_bottom">
-                        <div className="countdown_item">
-                            <div className="countdown_time">
-                                {this.state.days}
-                            </div>
-                            <div className="countdown_tag">
-                                Days
-                            </div>
-                        </div>
-                        <div className="countdown_item">
-                            <div className="countdown_time">
-                                {this.state.hours}
-                            </div>
-                            <div className="countdown_tag">
-                                Hs
-                            </div>
-                        </div>
-                        <div className="countdown_item">
-                            <div className="countdown_time">
-                                {this.state.minutes}
-                            </div>
-                            <div className="countdown_tag">
-                                Min
-                            </div>
-                        </div>
-                        <div className="countdown_item">
-                            <div className="countdown_time">
-                                {this.state.seconds}
-                            </div>
-                            <div className="countdown_tag">
-                                Sec
-                            </div>
-                        </div>
+                        {this.renderTimeSections()}
                     </div>
-                </div>    
+                </div>
             </Slide>
-            
         )
     }
 }
