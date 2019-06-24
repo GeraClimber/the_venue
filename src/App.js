@@ -4,14 +4,10 @@ import {Element} from 'react-scroll'
 
 
 
-import Header from './components/header_footer/Header'
+import {Header, Footer, Location, Pricing} from './components';
 import Featured from './components/featured'
 import VenueNfo from './components/venueNfo'
 import Highlights from './components/Highlights'
-import Pricing from './components/pricing'
-import Location from './components/location'
-import Footer from './components/header_footer/Footer'
-
 
 function App() {
   return (
