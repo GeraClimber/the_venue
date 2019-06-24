@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage" : "http://GeraClimber.github.io/the_venue",
+  "homepage": "http://GeraClimber.github.io/the_venue",
   "eslintConfig": {
     "extends": "react-app"
   },
