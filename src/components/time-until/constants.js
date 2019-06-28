@@ -1,11 +1,12 @@
-export const DEADLINE = 'Dec, 16, 2019';
+export const DEADLINE = 'Dec, 16, 2018';
 export const DELAY = 1000;
 export const MILLISECONDS = 1000;
 
 export const DATE_SECTIONS = [
     {
         title: 'Days',
-        key: 'days'
+        key: 'days',
+        hideOnZero: true
     },
     {
         title: 'Hs',
