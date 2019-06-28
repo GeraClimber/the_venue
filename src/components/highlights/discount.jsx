@@ -4,7 +4,8 @@ import Slide from 'react-reveal/Slide'
 import MyButton from '../utils/MyButton'
 
 const DISCOUNT_MAX = 35;
-const TIMEOUT_STEP = 5;
+const TIMEOUT_STEP = 120;
+const INCREASE_STEP = 1;
 
 export class Discount extends Component {
 
@@ -15,10 +16,10 @@ export class Discount extends Component {
     calcDiscount = () => {
         const timer = setInterval(() => {
             this.setState((currentState) =>
-                currentState.discountValue === DISCOUNT_MAX
+                currentState.discountValue >= DISCOUNT_MAX
                     ? clearInterval(timer)
                     : {
-                        discountValue: currentState.discountValue + 1
+                        discountValue: currentState.discountValue + INCREASE_STEP
                     });
         }, TIMEOUT_STEP);
     };
