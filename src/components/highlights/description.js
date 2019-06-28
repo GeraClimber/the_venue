@@ -1,7 +1,7 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade'
 
-const Description = () => {
+export const Description = () => {
     return (
         <Fade>
             <div className="center_wrapper">
@@ -18,5 +18,3 @@ const Description = () => {
         </Fade>
     );
 };
-
-export default Description;

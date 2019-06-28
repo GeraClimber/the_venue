@@ -1,8 +1,8 @@
 import React from 'react';
-import Description from './Description';
-import Discount from './Discount'
+import {Description} from './description';
+import {Discount} from './discount'
 
-const Highlights = () => {
+export const Highlights = () => {
     return (
         <div className="highlight_wrapper">
             <Description />
@@ -10,5 +10,3 @@ const Highlights = () => {
         </div>
     );
 };
-
-export default Highlights;

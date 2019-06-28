@@ -4,8 +4,7 @@ import {Element} from 'react-scroll'
 
 
 
-import {Header, Footer, Location, Pricing, Featured, VenueNfo} from './components';
-import Highlights from './components/Highlights'
+import {Header, Footer, Location, Pricing, Featured, VenueNfo, Highlights} from './components';
 
 function App() {
   return (
