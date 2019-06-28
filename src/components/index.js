@@ -7,4 +7,4 @@ export {Carousel} from './carousel';
 export {TimeUntil} from './time-until';
 export {Featured} from './featured';
 export {VenueNfo} from './venue-nfo';
-
+export {Highlights} from './highlights';
