@@ -4,8 +4,7 @@ import {Element} from 'react-scroll'
 
 
 
-import {Header, Footer, Location, Pricing} from './components';
-import Featured from './components/featured'
+import {Header, Footer, Location, Pricing, Featured} from './components';
 import VenueNfo from './components/venueNfo'
 import Highlights from './components/Highlights'
 
@@ -33,7 +32,7 @@ function App() {
       <Element name="location">
         <Location/>
       </Element>
-      
+
       <Footer/>
     </div>
   );
