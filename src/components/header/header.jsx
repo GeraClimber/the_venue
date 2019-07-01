@@ -18,15 +18,10 @@ export class Header extends Component {
     }
 
     handleScroll = () => {
-        if (window.scrollY > 0) {
-            this.setState({
-                headerShow: true
-            })
-        } else {
-            this.setState({
-                headerShow: false
-            })
-        }
+        this.setState(() => ({
+            headerShow: window.scrollY > 0
+        }))
+
     };
 
     toggleDrawer = () => {
