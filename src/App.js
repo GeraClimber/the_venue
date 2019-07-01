@@ -1,6 +1,6 @@
 import React from 'react';
-import './resources/styles.css'
-import {Element} from 'react-scroll'
+import './resources/styles.css';
+import {Element} from 'react-scroll';
 
 
 
