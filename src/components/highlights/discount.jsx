@@ -3,8 +3,8 @@ import Fade from 'react-reveal/Fade'
 import Slide from 'react-reveal/Slide'
 import MyButton from '../utils/MyButton'
 
-const DISCOUNT_MAX = 35;
-const TIMEOUT_STEP = 120;
+const DISCOUNT_MAX = 70;
+const TIMEOUT_STEP = 25;
 const INCREASE_STEP = 1;
 
 export class Discount extends Component {
@@ -20,19 +20,18 @@ export class Discount extends Component {
                     ? clearInterval(timer)
                     : {
                         discountValue: currentState.discountValue + INCREASE_STEP
-                    });
+                    }
+            );
         }, TIMEOUT_STEP);
     };
-
-    componentDidMount() {
-        this.calcDiscount()
-    }
 
     render() {
         return (
             <div className="center_wrapper">
                 <div className="discount_wrapper">
-                    <Fade>
+                    <Fade
+                        onReveal={this.calcDiscount}
+                    >
                         <div className="discount_porcentage">
                             {/*<span>{this.state.discountValue}%</span>*/}
                             <span>{this.state.discountValue}%</span>

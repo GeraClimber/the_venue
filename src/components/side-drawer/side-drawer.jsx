@@ -8,7 +8,7 @@ import {scroller} from 'react-scroll'
 
 import {DRAWER_ELEMENTS} from './contants';
 
-export const SideDrawer = (props) => {
+export const SideDrawer = ({drawerVisible, onClose}) => {
 
     const scrollToElement = (element) => {
         scroller.scrollTo(element, {
@@ -17,14 +17,15 @@ export const SideDrawer = (props) => {
             smooth: true,
             offset: -150
         });
-        (props.onClose(false))();
+        onClose();
     };
 
+    console.log('drawerVisible', drawerVisible);
     return (
         <Drawer
             anchor="right"
-            open={props.open}
-            onClose={props.onClose(false)}
+            open={drawerVisible}
+            onClose={onClose}
         >
             <List component="nav">
                 {
