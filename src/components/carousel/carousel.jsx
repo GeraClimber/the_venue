@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 import {CAROUSEL_SETTINGS, IMAGES} from "./constants";
-import {CarposelItems} from './carousel-items';
 
 export const Carousel = () => {
     const containerHeight = window.innerHeight;

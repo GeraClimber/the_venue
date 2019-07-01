@@ -9,7 +9,7 @@ import {SideDrawer} from '../side-drawer';
 export class Header extends Component {
 
     state = {
-        right: false,
+        drawerVisible: false,
         headerShow: false
     };
 
@@ -29,10 +29,11 @@ export class Header extends Component {
         }
     };
 
-    toggleDrawer = (side, open) => () => {
-        this.setState({
-            [side]: open,
-        });
+    toggleDrawer = () => {
+        this.setState((currentState) => ({
+                drawerVisible: !currentState.drawerVisible
+            })
+        );
     };
 
     render() {
@@ -53,15 +54,15 @@ export class Header extends Component {
                     <IconButton
                         aria-label="Menu"
                         color="inherit"
-                        onClick={this.toggleDrawer('right', true)}
+                        onClick={this.toggleDrawer}
                     >
 
                         <MenuIcon />
                     </IconButton>
 
                     <SideDrawer
-                        open={this.state.right}
-                        onClose={(value) => this.toggleDrawer("right", value)}
+                        drawerVisible={this.state.drawerVisible}
+                        onClose={this.toggleDrawer}
                     />
                 </Toolbar>
             </AppBar>
