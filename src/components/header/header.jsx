@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 
 import SideDrawer from './SideDrawer';
 
-class Header extends Component {
+export class Header extends Component {
 
 
     state = {
